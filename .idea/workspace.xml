@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0231401b-37e7-490b-b171-284ad2d39e7f" name="Default" comment="Test comment">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/New_Login_Seeam" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -299,7 +298,14 @@
       <option name="project" value="LOCAL" />
       <updated>1471862810972</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="New Login detail add Seeam vai's file">
+      <created>1471865550211</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1471865550211</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -339,7 +345,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test comment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test comment" />
+    <MESSAGE value="New Login detail add Seeam vai's file" />
+    <option name="LAST_COMMIT_MESSAGE" value="New Login detail add Seeam vai's file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
