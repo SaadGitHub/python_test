@@ -44,7 +44,7 @@ class CreateContents(unittest.TestCase):
         """
         try:
             self.driver.find_element(by=how, value=what)
-        except NoSuchElementException, e:
+        except NoSuchElementException:
             return False
         return True
 
