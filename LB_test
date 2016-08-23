@@ -8,6 +8,9 @@ import unittest, time, re
 import os, Conf_Reader
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
+from django.db import connections, transaction
+from django.core.cache import cache
+
 
 class CreateContents(unittest.TestCase):
     @classmethod
@@ -29,10 +32,19 @@ class CreateContents(unittest.TestCase):
 
         driver.find_element_by_xpath("//input[contains(@id, 'name')][contains(@class, 'form-field')]").clear()
         driver.find_element_by_xpath("//input[contains(@id, 'name')][contains(@class, 'form-field')]").send_keys("TestName")
-        modal_body_name_xpath.send_keys(self.credentials.admin_email)
-        pass_field.clear()
-        pass_field.send_keys(self.credentials.admin_pass)
-        login_button.click()
+        driver.find_element_by_xpath("//input[contains(@id, 'organization')][contains(@class, 'form-field')]").clear()
+        driver.find_element_by_xpath("//input[contains(@id, 'organization')][contains(@class, 'form-field')]").send_keys("TestOrganization")
+        driver.find_element_by_xpath("//input[contains(@id, 'email')][contains(@class, 'form-field')]").clear()
+        driver.find_element_by_xpath("//input[contains(@id, 'email')][contains(@class, 'form-field')]").send_keys("TestEmai@testemail.com")
+        driver.find_element_by_xpath("//input[contains(@id, 'submit_button')][contains(@type, 'submit')]").click()
+
+    def cookie_delete(self):
+        delete_all_cookies(popup_info_sumbit)
+
+        # modal_body_name_xpath.send_keys(self.credentials.admin_email)
+        # pass_field.clear()
+        # pass_field.send_keys(self.credentials.admin_pass)
+        # login_button.click()
 
 
 
