@@ -1,20 +1,20 @@
+
 from selenium import webdriver
+import time
+import unittest
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
-from __builtin__ import classmethod
+# from __builtin__ import classmethod
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.select import Select
-import unittest, time, re
-import os, Conf_Reader
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.support import expected_conditions as EC
-from django.db import connections, transaction
-from django.core.cache import cache
+# import os, Conf_Reader
+# from selenium.webdriver.common.action_chains import ActionChains
+# from selenium.webdriver.support import expected_conditions as EC
 
 
-class CreateContents(unittest.TestCase):
+class LBTest(unittest.TestCase):
     @classmethod
-    def setUpClass(cls):
+    def setupclass(cls):
         cls.driver = webdriver.Chrome()
         cls.driver.maximize_window()
         cls.base_url = "http://legalbarriers.dev.lin2.panth.com/"
@@ -37,9 +37,33 @@ class CreateContents(unittest.TestCase):
         driver.find_element_by_xpath("//input[contains(@id, 'email')][contains(@class, 'form-field')]").clear()
         driver.find_element_by_xpath("//input[contains(@id, 'email')][contains(@class, 'form-field')]").send_keys("TestEmai@testemail.com")
         driver.find_element_by_xpath("//input[contains(@id, 'submit_button')][contains(@type, 'submit')]").click()
+        print("Data Submitted")
 
     def cookie_delete(self):
-        delete_all_cookies(popup_info_sumbit)
+        time.sleep(3)
+        self.driver.delete_all_cookies()
+
+    def call_all(self):
+        self.setupclass()
+        self.data_input()
+
+    def run_loop(self):
+        for _ in range(0,20):
+            self.call_all()
+
+    @classmethod
+    def teardown(cls):
+        # Close the browser window
+        cls.driver.quit()
+        print("Done")
+
+    if __name__ == '__main__':
+        unittest.main()
+
+
+
+
+
 
         # modal_body_name_xpath.send_keys(self.credentials.admin_email)
         # pass_field.clear()
@@ -106,5 +130,3 @@ class CreateContents(unittest.TestCase):
 #         self.assertEqual([], self.verificationErrors)
 #
 #
-# if __name__ == "__main__":
-#     unittest.main()
