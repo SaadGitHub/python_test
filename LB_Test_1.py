@@ -50,7 +50,7 @@ class LBTest(unittest.TestCase):
 
     # Running loop
     def test_run_loop(self):
-        for _ in range(0,5):
+        for _ in range(0,20):
             self.combined_all()
 
     # Close the browser window
