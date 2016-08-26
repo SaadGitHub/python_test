@@ -50,12 +50,13 @@ class LBTest(unittest.TestCase):
 
     # Running loop
     def test_run_loop(self):
-        for _ in range(0,20):
+        for _ in range(0,5):
             self.combined_all()
 
     # Close the browser window
     @classmethod
-    def teardown(cls):
+    def tearDown(cls):
+        cls.driver.quit()
         print("Done")
 
     if __name__ == '__main__':
