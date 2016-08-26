@@ -4,7 +4,6 @@ import unittest
 import time
 
 
-
 class lb_modal(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -32,13 +31,12 @@ class lb_modal(unittest.TestCase):
         print
         'cookie cleared'
 
-
     # Run all the test cases
     def full_modal(self):
         self.modal_submission()
         self.clear_cookie()
 
-    #loop for x time
+    # loop for x time
     def test_loop(self):
         for _ in range(1, 5):
             self.full_modal()
