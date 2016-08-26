@@ -6,7 +6,7 @@ import unittest
 
 class LBTest(unittest.TestCase):
     @classmethod
-    def setupclass(cls):
+    def setUpClass(cls):
         cls.driver = webdriver.Chrome()
         cls.driver.maximize_window()
         cls.base_url = "http://legalbarriers.dev.lin2.panth.com/"
@@ -19,7 +19,7 @@ class LBTest(unittest.TestCase):
         cls.modal_body_email_xpath = "//input[contains(@id, 'email')][contains(@class, 'form-field')]"
         cls.modal_body_submit_xpath = "//input[contains(@id, 'submit_button')][contains(@type, 'submit')]"
 
-    # Dara submission
+    # Data submission
     def data_input(self):
         driver = self.driver
         driver.get(self.base_url)
@@ -44,14 +44,14 @@ class LBTest(unittest.TestCase):
         self.driver.delete_all_cookies()
 
     # Combining all methods
-    def call_all(self):
-        self.setupclass()
+    def combined_all(self):
         self.data_input()
+        self.cookie_delete()
 
     # Running loop
-    def run_loop(self):
+    def test_run_loop(self):
         for _ in range(0,20):
-            self.call_all()
+            self.combined_all()
 
     # Close the browser window
     @classmethod
