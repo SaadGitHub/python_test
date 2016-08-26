@@ -24,13 +24,19 @@ class LBTest(unittest.TestCase):
         driver = self.driver
         driver.get(self.base_url)
 
-        driver.find_element_by_xpath("//input[contains(@id, 'name')][contains(@class, 'form-field')]").clear()
-        driver.find_element_by_xpath("//input[contains(@id, 'name')][contains(@class, 'form-field')]").send_keys("TestName")
-        driver.find_element_by_xpath("//input[contains(@id, 'organization')][contains(@class, 'form-field')]").clear()
-        driver.find_element_by_xpath("//input[contains(@id, 'organization')][contains(@class, 'form-field')]").send_keys("TestOrganization")
-        driver.find_element_by_xpath("//input[contains(@id, 'email')][contains(@class, 'form-field')]").clear()
-        driver.find_element_by_xpath("//input[contains(@id, 'email')][contains(@class, 'form-field')]").send_keys("TestEmai@testemail.com")
-        driver.find_element_by_xpath("//input[contains(@id, 'submit_button')][contains(@type, 'submit')]").click()
+        modal_body_xpath = "//div[contains(@class, 'modal-body')]"
+        modal_body_name_xpath = "//input[contains(@id, 'name')][contains(@class, 'form-field')]"
+        modal_body_org_xpath = "//input[contains(@id, 'organization')][contains(@class, 'form-field')]"
+        modal_body_email_xpath = "//input[contains(@id, 'email')][contains(@class, 'form-field')]"
+        modal_body_submit_xpath = "//input[contains(@id, 'submit_button')][contains(@type, 'submit')]"
+
+        driver.find_element_by_xpath(modal_body_name_xpath).clear()
+        driver.find_element_by_xpath(modal_body_name_xpath).send_keys("TestName")
+        driver.find_element_by_xpath(modal_body_org_xpath).clear()
+        driver.find_element_by_xpath(modal_body_org_xpath).send_keys("TestOrganization")
+        driver.find_element_by_xpath(modal_body_email_xpath).clear()
+        driver.find_element_by_xpath(modal_body_email_xpath).send_keys("TestEmai@testemail.com")
+        driver.find_element_by_xpath(modal_body_submit_xpath).click()
         print("Data Submitted")
 
     # Deleting browser cookies
@@ -51,8 +57,6 @@ class LBTest(unittest.TestCase):
     # Close the browser window
     @classmethod
     def teardown(cls):
-
-        cls.driver.quit()
         print("Done")
 
     if __name__ == '__main__':
